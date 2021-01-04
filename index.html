@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manipulation</title>
+</head>
+<body>
+
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+	<h2 id="comment"></h2>
+	<h3 id="userscore"></h3>
+	<h3 id="compscore"></h3>
+	<h3 id="userChoices"></h3>
+	<h3 id="compchoices"></h3>
+	<p>Choose rock, paper, or scissors, and see if you can beat the computer!</p>
+
+<button onclick="select('Rock')">&#9994;</button>
+<button onclick="select('Paper')">&#9995;</button>
+<button onclick="select('Scissors')">&#9996;</button>
+
+<script>
+   var weapons = ["Rock","Scissors","Paper"];
+var myScore = 0;
+var compScore = 0;
+
+function select(weapon){
+  var computerSelection = Math.floor(Math.random()*3);
+  var compWeapon = weapons[computerSelection]
+  
+  if (weapon == "Rock"){
+    
+    if(compWeapon == "Rock"){
+    	document.getElementById("comment").innerHTML = "It's a Draw!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Rock";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+
+      // alert("Computer select " +compWeapon+ ". It's a draw! Current score, You"+myScore + " : Computer" +compScore);
+    }else if(compWeapon == "Paper"){
+      compScore++;
+      document.getElementById("comment").innerHTML = "It's a Lose!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Rock";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+      // alert("Computer select " +compWeapon+ ". It's a lose! Current score, You"+myScore + " : Computer" +compScore);
+    }else{
+      myScore++;
+      document.getElementById("comment").innerHTML = "It's a Win!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Rock";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+       // alert("Computer select " +compWeapon+ ". It's a Win! Current score, You"+myScore + " : Computer" +compScore);
+    }
+    
+  }
+  
+  if (weapon == "Paper"){
+    
+    if(compWeapon == "Paper"){
+    	document.getElementById("comment").innerHTML = "It's a Draw!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Paper";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+      // alert("Computer select "+compWeapon+". It's a draw! Current score, You"+myScore + " : Computer" +compScore);
+    }
+    else if(compWeapon == "Rock"){
+       compScore++;
+        document.getElementById("comment").innerHTML = "It's a Lose!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Paper";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+    //    alert("Computer select "+compWeapon+". It's a lose! Current score, You"+myScore + " : Computer" +compScore);
+    }
+    else{
+      myScore++;
+       document.getElementById("comment").innerHTML = "It's a Win!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Paper";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+       // alert("Computer select "+compWeapon+". It's a Win! Current score, You"+myScore + " : Computer" +compScore);
+    }
+    
+  }
+  
+  if (weapon == "Scissors"){
+    
+    if(compWeapon == "Scissors"){
+    	document.getElementById("comment").innerHTML = "It's a Draw!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Scissors";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+      // alert("Computer select "+compWeapon+". It's a draw! Current score, You"+myScore + " : Computer" +compScore);
+    }
+    else if(compWeapon == "Rock"){
+      compScore++;
+       document.getElementById("comment").innerHTML = "It's a Lose!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Scissors";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+       // alert("Computer select "+compWeapon+". It's a lose! Current score, You"+myScore + " : Computer" +compScore);
+    }
+    else{
+      myScore++;
+      document.getElementById("comment").innerHTML = "It's a Win!";
+    	document.getElementById("userscore").innerHTML = "Your Score : "+myScore;
+    	document.getElementById("compscore").innerHTML = "Computer Score : "+compScore;
+    	document.getElementById("userChoices").innerHTML = "You Choose : Scissors";
+    	document.getElementById("compchoices").innerHTML = "Computer Choose : "+compWeapon;
+       // alert("Computer select "+compWeapon+". It's a Win! Current score, You"+myScore + " : Computer" +compScore);
+    }
+  }
+  
+}
+</script>
+</body>
+</html>
+
+</body>
+</html>

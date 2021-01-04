@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manipulation</title>
+</head>
+<body>
+	<h1>DOM Manipulation</h1>
+	<!-- 
+		1) Calculation, 2) Dynamic Data 3) Animation
+
+		DOM Manipulation (showing the value on your UI)
+
+	-->
+	<input type="text" id="name" placeholder="Enter Your Name">
+	<button onclick="sayHello()">Click Me!</button>
+	<p id="greetings"></p>
+
+	<hr>
+
+	<button onclick="clickMeAgain()" id="firstbtn">Disable Button</button>
+	<button onclick="clickMeAgain()" id="secondbtn">Try Me Again!</button>
+
+	<hr>
+
+	<h2>My To Do List</h2>
+	<input type="text" id="itemName"><button onclick="addNewItem()">Add New Item</button>
+
+	<ul id="item-list">
+		
+	</ul>
+
+
+
+
+
+
+	<script type="text/javascript">
+		function sayHello(){
+			//GEt the value from input
+			var name = document.getElementById("name").value;
+			//Set the value on a,p,span,h1, ...
+			document.getElementById("greetings").innerHTML= "Hello "+name;
+
+			//Set "" (empty string) / clear the input
+			document.getElementById("name").value = "";
+		}
+
+		function clickMeAgain(){
+			if (document.getElementById("secondbtn").disabled == true) {
+				document.getElementById("secondbtn").removeAttribute("disabled");
+				document.getElementById("firstbtn").innerHTML= "Disable Button";
+			}else{
+				document.getElementById("firstbtn").innerHTML= "Enable Button";
+				document.getElementById("secondbtn").setAttribute("disabled", true);
+			}
+			
+		}
+
+		function addNewItem(){
+			
+		var newItem = document.getElementById("itemName").value;
+
+		var newLi = document.createElement("li");
+		newLi.innerHTML = newItem;
+
+		var newButton = document.createElement("button");
+		newButton.innerHTML = "Delete Me!"
+		newButton.addEventListener("click", function(){
+			document.getElementById("item-list").removeChild(newLi);
+		})
+		newLi.appendChild(newButton);	
+		
+		document.getElementById("item-list").appendChild(newLi);
+		}
+
+
+
+	</script>
+</body>
+</html>
