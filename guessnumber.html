@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess Random Number</title>
+</head>
+<body>
+    <h1>Guess The Number</h1>
+    <p id="yourTurns"></p>
+    <p id="comment"></p>
+    <input type="text" id="guessNumber" name="" placeholder="Insert your guess"><button onclick="checkNumber()" id="checkbtn">Check</button>
+    <br>
+    <button id="restartGame" onclick="restartPressed()" hidden="true">Restart Game</button>
+
+
+ <script type="text/javascript">
+var turns = 5;
+var num = Math.floor(Math.random() * 100) + 1;
+var restartBtn = document.getElementById("restartGame");
+
+
+function restartPressed(){
+	turns=5;
+	num = Math.floor(Math.random() * 100) + 1;
+	document.getElementById("checkbtn").removeAttribute("disabled");
+	document.getElementById("comment").innerHTML = "Game Has Been Restart, Guess Again! ";
+	document.getElementById("restartGame").setAttribute("hidden", true);	
+
+}
+function checkNumber() {
+
+
+        var guess = document.getElementById("guessNumber").value;
+        if (guess == num) {
+        	 document.getElementById("comment").innerHTML = "Congratulations, you won! The mystery number was " + num + ".";
+        } else {
+           
+            if (guess < num) {
+            	turns--;
+            	 document.getElementById("comment").innerHTML = "Your guess was too low. Turns remaining: " + turns;
+            	 if (turns == 0) {
+    					document.getElementById("comment").innerHTML = "Game Over. The Number Is "+num;
+    					document.getElementById("checkbtn").setAttribute("disabled", true);  
+    					document.getElementById("restartGame").removeAttribute("hidden");			
+  				  }else{
+  				  	document.getElementById("checkbtn").removeAttribute("disabled");
+  				  }
+            } else if (guess > num) {
+            	 turns--;
+            	document.getElementById("comment").innerHTML = "Your guess was too high. Turns remaining: " + turns;
+            	if (turns == 0) {
+    					document.getElementById("comment").innerHTML = "Game Over. The Number Is "+num;
+    					document.getElementById("checkbtn").setAttribute("disabled", true);  
+    				document.getElementById("restartGame").removeAttribute("hidden");
+    					
+  				  }else{
+  				  	document.getElementById("checkbtn").removeAttribute("disabled");
+  				
+
+  				  }
+            }
+        }
+
+    
+}	
+
+</script>
+</body>
+</html>
