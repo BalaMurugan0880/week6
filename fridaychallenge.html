@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+	<<script type="text/javascript">
+
+//first method
+function findLongestWordLength(str) {
+  var strSplit = str.split(' ');
+  var longestWord = 0;
+  
+  for(var i = 0; i < strSplit.length; i++){
+    if(strSplit[i].length > longestWord){
+	longestWord = strSplit[i].length;
+     
+      
+     }
+  }
+  return longestWord;
+}
+console.log(findLongestWordLength("Welcome to Asia Developer Academy"));
+
+
+
+
+//answer no 1
+var inputArray = [3,6,-2,-5,7,3];
+
+function largestAdjacent(arr){
+  var answer = arr[0] * arr[1]
+  for (var i = 1; i < arr.length-1; i++){
+    if (arr[i] * arr[i+1] > answer){
+      answer = arr[i] * arr[i+1]
+    }
+  }
+  
+  return answer;
+}
+console.log(largestAdjacent(inputArray));
+
+//answer no 2
+function transformAMPM(time){
+  if(time.charAt(8) == "A"){
+    if(time.substring(0,2) == "12"){
+      return "00"+time.substring(2,8);
+      
+    }else{
+      return time.substring(0,8);
+    }
+  }else{
+    if(time.substring(0,2) == "12"){
+      return time.substring(0,8);
+    }else{
+   return parseInt(time.substring(0,2)) +12 + time.substring(2,8);
+  }
+    
+  }
+}
+console.log(transformAMPM("07:45:15AM"))
+console.log(transformAMPM("07:45:15PM"))
+console.log(transformAMPM("12:45:15AM"))
+console.log(transformAMPM("12:45:15PM"))
+
+//answer no 3
+var a = 1;
+var b = 1;
+var answer1 = 0;
+// for(var i = 0; i < 10; i++){
+// 	console.log(a)
+// 	console.log(b)
+// 	a = a+b
+// 	b = b+a
+// }
+
+while ( a < 1000 && b < 1000){
+ if (a % 2 == 0){
+ 	answer1 += a
+ }
+  if (b % 2 == 0){
+ 	answer1 += b
+ }
+	a = a+b
+ 	b = b+a
+}
+ console.log(answer1);
+
+ //answer no 4
+ function diffArray(arr1, arr2) {
+  var newArr = [];
+
+  function onlyInFirst(first, second) {
+   
+    for (var i = 0; i < first.length; i++) {
+      if (second.indexOf(first[i]) === -1) {
+        newArr.push(first[i]);
+      }
+    }
+  }
+
+  onlyInFirst(arr1, arr2);
+  onlyInFirst(arr2, arr1);
+
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+//factorial 5 = 1 x 2 x 3 x 4 x 5 (example of recursive)
+
+function normalFactorial(n){
+	var answer = 1
+	for(var i = 1; i <= n; i++){
+		answer *= i
+	}
+	return answer
+}
+// console.log(normalFactorial(5))
+
+function recFactorial(n){
+	if(n == 1){
+		return 1;
+	}else{
+		return n * recFactorial(n-1)
+	}
+}
+console.log(recFactorial(5))
+
+	</script>
+
+	
+
+
+
+</body>
+</html>
